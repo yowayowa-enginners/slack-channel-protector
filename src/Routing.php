@@ -2,8 +2,6 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-use YowayowaEnginners\SlackChannelProtector\UrlVerification;
-
 class Routing
 {
   public static function exec(array $data)
