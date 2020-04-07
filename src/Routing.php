@@ -1,8 +1,8 @@
 <?php
 
-namespace src;
+namespace YowayowaEnginners\SlackChannelProtector;
 
-use src\UrlVerification;
+use YowayowaEnginners\SlackChannelProtector\UrlVerification;
 
 class Routing
 {

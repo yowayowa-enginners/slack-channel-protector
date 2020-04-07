@@ -1,6 +1,6 @@
 <?php
 
-use src\Routing;
+use YowayowaEnginners\SlackChannelProtector\Routing;
 
 $data = file_get_contents("php://input");
 

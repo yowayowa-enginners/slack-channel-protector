@@ -1,6 +1,6 @@
 <?php
 
-namespace src;
+namespace YowayowaEnginners\SlackChannelProtector;
 
 class UrlVerification
 {
