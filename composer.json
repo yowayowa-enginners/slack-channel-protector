@@ -1,4 +1,9 @@
 {
     "name": "yowayowa-enginners/slack-channel-protector",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "YowayowaEnginners\\SlackChannelProtector\\": "src/"
+        }
+    }
 }
