@@ -11,6 +11,6 @@ class UrlVerification
 
   public static function run(array $data)
   {
-    $this->ReturnChallengeValue($data);
+    self::ReturnChallengeValue($data);
   }
 }

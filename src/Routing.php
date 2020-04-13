@@ -14,6 +14,6 @@ class Routing
   
   public static function run($data)
   {
-    $this->exec($data)->run($data);
+    self::exec($data)->run($data);
   }
 }
