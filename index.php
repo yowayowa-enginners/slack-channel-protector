@@ -9,4 +9,4 @@ file_put_contents("log.php", $data, FILE_APPEND);
 
 $data = json_decode($data, true);
 
-echo Routing::exec($data);
+echo Routing::run($data);
