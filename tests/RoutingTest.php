@@ -20,7 +20,7 @@ class RoutingTest extends TestCase
 
     $data["event"]["channel"] = 'CQT49CT8B';
 
-    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WheatherToProtect', Routing::exec($data));
+    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::exec($data));
   }
   
   public function testExecFailures()
