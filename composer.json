@@ -1,6 +1,8 @@
 {
     "name": "yowayowa-enginners/slack-channel-protector",
-    "require": {},
+    "require": {
+        "vlucas/phpdotenv": "^4.1"
+    },
     "autoload": {
         "psr-4": {
             "YowayowaEnginners\\SlackChannelProtector\\": "src/"
