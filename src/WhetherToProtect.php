@@ -2,6 +2,8 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
+require './vendor/autoload.php';
+
 class WhetherToProtect
 {
   public static function run(array $data)
@@ -10,8 +12,11 @@ class WhetherToProtect
   }
 
   public static function WhetherToProtect(array $data)
-  {
-    if($data["event"]["channel"] === 'CQT49CT8B' && $data["event"]["user"] !== 'UTH8P3G4A'){
+  { 
+    $channel = Env::getEnvValue('CHANNEL');
+    $user = Env::getEnvValue('SPECIFICUSER');
+
+    if($data["event"]["channel"] === $channel && $data["event"]["user"] !== $user){
       return PostMessage::class;
     }
   }
