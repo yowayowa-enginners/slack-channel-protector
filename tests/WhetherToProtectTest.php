@@ -1,6 +1,7 @@
 <?php
 
 use YowayowaEnginners\SlackChannelProtector\WhetherToProtect;
+use YowayowaEnginners\SlackChannelProtector\Env;
 use PHPUnit\Framework\TestCase;
 
 class WhetherToProtectTest extends TestCase
@@ -9,7 +10,7 @@ class WhetherToProtectTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = 'CQT49CT8B';
+    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
 
     $data["event"]["user"] = 'aaa';
 
@@ -31,9 +32,9 @@ class WhetherToProtectTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = 'CQT49CT8B';
+    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
 
-    $data["event"]["user"] = 'UTH8P3G4A';
+    $data["event"]["user"] = Env::getEnvValue('SPECIFICUSER');
 
     $this->assertNull(WhetherToProtect::WhetherToProtect($data));
   }

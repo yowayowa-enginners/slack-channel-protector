@@ -1,6 +1,7 @@
 <?php
 
 use YowayowaEnginners\SlackChannelProtector\Routing;
+use YowayowaEnginners\SlackChannelProtector\Env;
 use PHPUnit\Framework\TestCase;
 
 class RoutingTest extends TestCase
@@ -18,7 +19,7 @@ class RoutingTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = 'CQT49CT8B';
+    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
 
     $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::exec($data));
   }
