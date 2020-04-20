@@ -11,7 +11,8 @@ class PostMessage
 
   public static function PostMessage()
   {
-    $text ='dotenvのテストです';
+    $text = Env::getEnvValue('TEXT');
+    var_dump($text);
     $data = array(
       'text' => $text
     );
