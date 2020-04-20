@@ -1,6 +1,7 @@
 <?php
 
 use YowayowaEnginners\SlackChannelProtector\Routing;
+use YowayowaEnginners\SlackChannelProtector\Env;
 use PHPUnit\Framework\TestCase;
 
 class RoutingTest extends TestCase
@@ -12,6 +13,15 @@ class RoutingTest extends TestCase
     $data["type"] = 'url_verification';
 
     $this->assertEquals('YowayowaEnginners\SlackChannelProtector\UrlVerification', Routing::exec($data));
+  }
+
+  public function testPostRouting()
+  {
+    $data = [];
+
+    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
+
+    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::exec($data));
   }
   
   public function testExecFailures()

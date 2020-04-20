@@ -9,11 +9,14 @@ class Routing
     if($data["type"] === 'url_verification'){
       return UrlVerification::class;
     };
+
+    if(isset($data["event"]["channel"])){
+      return WhetherToProtect::class;
+    }
   }
 
-  
   public static function run($data)
   {
-    $this->exec($data)->run($data);
+    self::exec($data)::run($data);
   }
 }
