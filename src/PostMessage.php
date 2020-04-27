@@ -12,10 +12,12 @@ class PostMessage
   public static function PostMessage()
   {
     $token = Env::getEnvValue('SLACK_BOT_ACCESS_TOKEN');
+    $channel = Env::getEnvValue('CHANNEL');
     $text = Env::getEnvValue('TEXT');
 
     $data = array(
-      "token" =>  $token,
+      'token' =>  $token,
+      'channel' => $channel,
       'text' => $text
     );
 
