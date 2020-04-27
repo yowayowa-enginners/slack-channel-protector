@@ -2,8 +2,6 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-require './vendor/autoload.php';
-
 class WhetherToProtect
 {
   public static function run(array $data)
