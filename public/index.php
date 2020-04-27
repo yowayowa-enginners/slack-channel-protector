@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use YowayowaEnginners\SlackChannelProtector\Routing;
 use YowayowaEnginners\SlackChannelProtector\Env;
@@ -13,4 +13,4 @@ if (Env::getEnvValue('NODE_ENV') === 'debug'){
 
 $data = json_decode($data, true);
 
-echo Routing::run($data);
+echo Routing::exec($data);

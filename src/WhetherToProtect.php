@@ -2,11 +2,11 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-class WhetherToProtect
+class WhetherToProtect implements run
 {
-  public static function run(array $data)
+  public function run(array $data)
   {
-    self::WhetherToProtect($data)::run();
+    self::WhetherToProtect($data)::PostMessage();
   }
 
   public static function WhetherToProtect(array $data)
