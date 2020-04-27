@@ -12,6 +12,15 @@ class Env
 {
   public static function getEnvValue(string $key)
   {
-    return array_key_exists($key, $_ENV) ? $_ENV[$key] : null;
+    $value = array_key_exists($key, $_ENV) ? $_ENV[$key] : null;
+
+    return $value;
+  }
+
+  public static function getEnvValueAsArray(string $key)
+  {
+    $value = array_key_exists($key, $_ENV) ? $_ENV[$key] : null;
+
+    return explode(' ', $value);
   }
 }
