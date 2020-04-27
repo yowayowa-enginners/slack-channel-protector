@@ -19,7 +19,7 @@ class RoutingTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
+    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
 
     $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::detect($data));
   }

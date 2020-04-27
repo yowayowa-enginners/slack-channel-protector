@@ -10,9 +10,11 @@ class WhetherToProtectTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
+    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
 
     $data["event"]["user"] = 'aaa';
+
+    // var_dump($data);
 
     $this->assertEquals('YowayowaEnginners\SlackChannelProtector\PostMessage', WhetherToProtect::WhetherToProtect($data));
   }
@@ -32,9 +34,9 @@ class WhetherToProtectTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
+    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
 
-    $data["event"]["user"] = Env::getEnvValue('SPECIFICUSER');
+    $data["event"]["user"] = Env::getEnvValueAsArray('SPECIFICUSER')[0];
 
     $this->assertNull(WhetherToProtect::WhetherToProtect($data));
   }
