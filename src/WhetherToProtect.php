@@ -7,6 +7,7 @@ class WhetherToProtect implements run
   public function run(array $data)
   {
     self::WhetherToProtect($data)::PostMessage();
+    self::WhetherToProtect($data)::PostMessage($data);
   }
 
   public static function WhetherToProtect(array $data)
