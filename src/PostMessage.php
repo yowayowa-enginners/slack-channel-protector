@@ -4,10 +4,10 @@ namespace YowayowaEnginners\SlackChannelProtector;
 
 class PostMessage
 {
-  public static function PostMessage()
+  public static function PostMessage(array $data)
   {
     $token = Env::getEnvValue('SLACK_BOT_ACCESS_TOKEN');
-    $channel = Env::getEnvValue('CHANNEL');
+    $channel = $data["event"]["channel"];
     $text = Env::getEnvValue('TEXT');
 
     $data = array(
