@@ -17,7 +17,7 @@ class PostMessage
       'username' => 'Bot'
     );
 
-    $url = Env::getEnvValue('URL');
+    $url = 'https://slack.com/api/chat.postMessage';
     $curl = curl_init($url);
 
     curl_setopt($curl, CURLOPT_POST, TRUE); 

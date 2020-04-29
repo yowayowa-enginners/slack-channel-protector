@@ -6,6 +6,9 @@ class WhetherToProtect implements Runnable
 {
   public function run(array $data)
   {
+    if(is_null(self::WhetherToProtect($data))){
+      exit;
+    }
     self::WhetherToProtect($data)::PostMessage($data);
   }
 
