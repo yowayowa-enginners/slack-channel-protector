@@ -2,21 +2,19 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-require './vendor/autoload.php';
-
-class WhetherToProtect
+class WhetherToProtect implements Runnable
 {
-  public static function run(array $data)
+  public function run(array $data)
   {
-    self::WhetherToProtect($data)::run();
+    self::WhetherToProtect($data)::PostMessage($data);
   }
 
   public static function WhetherToProtect(array $data)
   { 
-    $channel = Env::getEnvValue('CHANNEL');
-    $user = Env::getEnvValue('SPECIFICUSER');
+    $channel = Env::getEnvValueAsArray('CHANNEL');
+    $user = Env::getEnvValueAsArray('SPECIFICUSER');
 
-    if($data["event"]["channel"] === $channel && $data["event"]["user"] !== $user){
+    if(in_array($data["event"]["channel"], $channel,true) && !in_array($data["event"]["user"], $user,true)){
       return PostMessage::class;
     }
   }

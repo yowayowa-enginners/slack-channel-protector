@@ -6,29 +6,29 @@ use PHPUnit\Framework\TestCase;
 
 class RoutingTest extends TestCase
 {
-  public function testExec()
+  public function testDetect()
   {
     $data = [];
     
     $data["type"] = 'url_verification';
 
-    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\UrlVerification', Routing::exec($data));
+    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\UrlVerification', Routing::detect($data));
   }
 
   public function testPostRouting()
   {
     $data = [];
 
-    $data["event"]["channel"] = Env::getEnvValue('CHANNEL');
+    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
 
-    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::exec($data));
+    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::detect($data));
   }
   
   public function testExecFailures()
   {
     $data = [];
 
-    $this->assertNull(Routing::exec($data));
+    $this->assertNull(Routing::detect($data));
 
   }
 }
