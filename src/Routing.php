@@ -10,7 +10,7 @@ class Routing
       return UrlVerification::class;
     };
 
-    if(isset($data["event"]["subtype"]) && $data["event"]["subtype"] == "bot_message"){
+    if(isset($data["event"]["bot_id"])){
       exit; // 自分自身(bot)のメッセージは処理しない
     }
 
