@@ -14,7 +14,7 @@ class WhetherToProtect implements Runnable
     $channel = Env::getEnvValueAsArray('CHANNEL');
     $user = Env::getEnvValueAsArray('SPECIFICUSER');
 
-    if(in_array($data["event"]["channel"], $channel) && !in_array($data["event"]["user"], $user)){
+    if(in_array($data["event"]["channel"], $channel,true) && !in_array($data["event"]["user"], $user,true)){
       return PostMessage::class;
     }
   }
