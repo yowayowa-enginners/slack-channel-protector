@@ -2,7 +2,7 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-class WhetherToProtect implements run
+class WhetherToProtect implements Runnable
 {
   public function run(array $data)
   {

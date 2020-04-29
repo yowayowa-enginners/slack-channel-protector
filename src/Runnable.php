@@ -2,7 +2,7 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-interface run
+interface Runnable
 {
   public function run(array $data);
 }

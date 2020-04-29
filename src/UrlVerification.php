@@ -2,7 +2,7 @@
 
 namespace YowayowaEnginners\SlackChannelProtector;
 
-class UrlVerification implements run
+class UrlVerification implements Runnable
 {
   public static function ReturnChallengeValue(array $data)
   {

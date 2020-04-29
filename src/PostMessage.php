@@ -22,7 +22,6 @@ class PostMessage
 
     curl_setopt($curl, CURLOPT_POST, TRUE); 
     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
-    curl_setopt($curl, CURLOPT_HEADEROPT, array('Content-Type: application/json'));
 
     curl_exec($curl);
   }
