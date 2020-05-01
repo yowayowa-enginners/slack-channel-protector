@@ -23,6 +23,15 @@ class RoutingTest extends TestCase
 
     $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::detect($data));
   }
+
+  public function testBotRouting()
+  {
+    $data = [];
+
+    $$data["event"]["bot_id"] = 'bot';
+
+    $this->assertNull(Routing::detect($data));
+  }
   
   public function testDetectFailures()
   {
