@@ -25,6 +25,7 @@ class RoutingTest extends TestCase
   }
   
   public function testExecFailures()
+  public function testDetectFailures()
   {
     $data = [];
 
