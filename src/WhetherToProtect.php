@@ -6,19 +6,19 @@ class WhetherToProtect implements Runnable
 {
   public function run(array $data)
   {
-    if(is_null(self::WhetherToProtect($data))){
-      exit;
-    }
-    self::WhetherToProtect($data)::PostMessage($data);
-  }
+    $needleChannel = $data["event"]["channel"];
+    $needleUser = $data["event"]["user"];
 
-  public static function WhetherToProtect(array $data)
-  { 
     $channel = Env::getEnvValueAsArray('CHANNEL');
     $user = Env::getEnvValueAsArray('SPECIFICUSER');
 
-    if(in_array($data["event"]["channel"], $channel,true) && !in_array($data["event"]["user"], $user,true)){
-      return PostMessage::class;
+    if(self::NeedsToProtect($needleChannel, $channel, $needleUser, $user)){
+      PostMessage::PostMessage($data);
     }
+  }
+
+  public static function NeedsToProtect(string $needleChannel, array $channel, string $needleUser, array $user) :bool 
+  { 
+    return in_array($needleChannel, $channel,true) && !in_array($needleUser, $user,true);
   }
 }

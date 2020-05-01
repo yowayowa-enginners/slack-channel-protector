@@ -1,43 +1,40 @@
 <?php
 
 use YowayowaEnginners\SlackChannelProtector\WhetherToProtect;
-use YowayowaEnginners\SlackChannelProtector\Env;
 use PHPUnit\Framework\TestCase;
 
 class WhetherToProtectTest extends TestCase
 {
+  protected $channel;
+  protected $user;
+
+  protected function setUp() :void
+  {
+    $this->channel = ['abc', 'efg', 'hij'];
+    $this->user = ['bbb', 'ccc', 'ddd'];
+  }
+
   public function testWhetherToProtect()
   {
-    $data = [];
-
-    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
-
-    $data["event"]["user"] = 'aaa';
-
-    // var_dump($data);
-
-    $this->assertEquals('YowayowaEnginners\SlackChannelProtector\PostMessage', WhetherToProtect::WhetherToProtect($data));
+    $channelData = 'abc';
+    $userData = 'aaa';
+    
+    $this->assertTrue(WhetherToProtect::NeedsToProtect($channelData, $this->channel, $userData, $this->user));
   }
 
   public function testWhetherToProtectDifferentChannel()
   {
-    $data = [];
-
-    $data["event"]["channel"] = 'xxxxx';
-
-    $data["event"]["user"] = 'ZZZ';
-
-    $this->assertNull(WhetherToProtect::WhetherToProtect($data));
+    $channelData = 'xxxxx';
+    $userData = 'ZZZ';
+    
+    $this->assertFalse(WhetherToProtect::NeedsToProtect($channelData, $this->channel, $userData, $this->user));
   }
 
   public function testWhetherToProtectSpecificUser()
   {
-    $data = [];
-
-    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
-
-    $data["event"]["user"] = Env::getEnvValueAsArray('SPECIFICUSER')[0];
-
-    $this->assertNull(WhetherToProtect::WhetherToProtect($data));
+    $channelData = 'xxxxx';
+    $userData = 'bbb';
+  
+    $this->assertFalse(WhetherToProtect::NeedsToProtect($channelData, $this->channel, $userData, $this->user));
   }
 }
