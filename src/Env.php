@@ -17,7 +17,7 @@ class Env
     return $value;
   }
 
-  public static function getEnvValueAsArray(string $key)
+  public static function getEnvValueAsArray(string $key) :array
   {
     $value = array_key_exists($key, $_ENV) ? $_ENV[$key] : null;
 
