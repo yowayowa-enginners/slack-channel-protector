@@ -9,16 +9,16 @@ class WhetherToProtect implements Runnable
     $targetChannel = $data["event"]["channel"];
     $targetUser = $data["event"]["user"];
 
-    $channels = Env::getEnvValueAsArray('CHANNEL');
-    $users = Env::getEnvValueAsArray('SPECIFICUSER');
+    $protectChannels = Env::getEnvValueAsArray('CHANNEL');
+    $whitelistUsers = Env::getEnvValueAsArray('SPECIFICUSER');
 
-    if(self::ShouldProtect($targetChannel, $channels, $targetUser, $users)){
+    if(self::ShouldProtect($targetChannel, $protectChannels, $targetUser, $whitelistUsers)){
       PostMessage::PostMessage($data);
     }
   }
 
-  public static function ShouldProtect(string $targetChannel, array $channels, string $targetUser, array $users) :bool 
+  public static function ShouldProtect(string $targetChannel, array $protectChannels, string $targetUser, array $whitelistUsers) :bool 
   { 
-    return in_array($targetChannel, $channels,true) && !in_array($targetUser, $users,true);
+    return in_array($targetChannel, $protectChannels,true) && !in_array($targetUser, $whitelistUsers,true);
   }
 }
