@@ -19,7 +19,7 @@ class WhetherToProtectTest extends TestCase
     $channelData = 'abc';
     $userData = 'aaa';
     
-    $this->assertTrue(WhetherToProtect::NeedsToProtect($channelData, $this->channel, $userData, $this->user));
+    $this->assertTrue(WhetherToProtect::ShouldProtect($channelData, $this->channel, $userData, $this->user));
   }
 
   public function testWhetherToProtectDifferentChannel()
@@ -27,7 +27,7 @@ class WhetherToProtectTest extends TestCase
     $channelData = 'xxxxx';
     $userData = 'ZZZ';
     
-    $this->assertFalse(WhetherToProtect::NeedsToProtect($channelData, $this->channel, $userData, $this->user));
+    $this->assertFalse(WhetherToProtect::ShouldProtect($channelData, $this->channel, $userData, $this->user));
   }
 
   public function testWhetherToProtectSpecificUser()
@@ -35,6 +35,6 @@ class WhetherToProtectTest extends TestCase
     $channelData = 'xxxxx';
     $userData = 'bbb';
   
-    $this->assertFalse(WhetherToProtect::NeedsToProtect($channelData, $this->channel, $userData, $this->user));
+    $this->assertFalse(WhetherToProtect::ShouldProtect($channelData, $this->channel, $userData, $this->user));
   }
 }
