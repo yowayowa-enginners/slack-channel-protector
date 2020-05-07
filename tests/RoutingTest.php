@@ -20,7 +20,7 @@ class RoutingTest extends TestCase
   {
     $data = [];
 
-    $data["event"]["channel"] = Env::getEnvValueAsArray('CHANNEL')[0];
+    $data["event"]["channel"] = 'aaaaaaaa';
 
     $this->assertEquals('YowayowaEnginners\SlackChannelProtector\WhetherToProtect', Routing::detect($data));
   }
@@ -29,14 +29,14 @@ class RoutingTest extends TestCase
   {
     $data = [];
 
-    $$data["event"]["bot_id"] = 'bot';
+    $data["event"]["bot_id"] = 'bot';
 
     $this->assertNull(Routing::detect($data));
   }
   
   public function testDetectFailures()
   {
-    $data = [];
+    $data = ['aaa'];
 
     $this->assertNull(Routing::detect($data));
 
