@@ -14,15 +14,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # - name: Validate composer.json and composer.lock
-    #   run: composer validate
+    - name: Validate composer.json and composer.lock
+      run: composer validate
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
     
     - name: phpunit
       run: |
-        alias phpunit="./vendor/phpunit/phpunit/phpunit"
+        alias phpunit="../vendor/phpunit/phpunit/phpunit"
         phpunit tests/ 
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
