@@ -1,5 +1,7 @@
 <?php
 
+namespace YowayowaEnginners\SlackChannelProtector;
+
 use YowayowaEnginners\SlackChannelProtector\Routing;
 use YowayowaEnginners\SlackChannelProtector\Env;
 use PHPUnit\Framework\TestCase;
