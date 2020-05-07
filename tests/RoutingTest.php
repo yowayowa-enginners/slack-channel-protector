@@ -1,6 +1,5 @@
 <?php
-
-namespace YowayowaEnginners\SlackChannelProtector;
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use YowayowaEnginners\SlackChannelProtector\Routing;
 use YowayowaEnginners\SlackChannelProtector\Env;
