@@ -6,7 +6,7 @@ class Routing
 {
   public static function detect(array $data)
   {
-    if($data["type"] === 'url_verification'){
+    if(isset($data["type"]) && $data["type"] === 'url_verification'){
       return UrlVerification::class;
     };
 
